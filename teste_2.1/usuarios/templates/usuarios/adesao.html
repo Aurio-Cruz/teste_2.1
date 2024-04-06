@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/tela_cadastro.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="website icon" type="PNG" href="{% static 'img/favicon simulador.png' %}">
+    <title>Adesão</title>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-check-circle"></i> Adesão</h2>
+        <form method="post">
+            {% csrf_token %}
+            <p class="instructions required-field">Campos obrigatórios são marcados com um asterisco (<span style="color: red">*</span>)</p>
+            <strong><label for="id_username"> Usuário<span style="color: red">*</span></label></strong>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div class="error-message">
+                    <ul>
+                        {% for error in form.username.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <strong><label for="id_last_name"> Sobrenome<span style="color: red">*</span></label></strong>
+            {{ form.last_name }}
+            {% if form.last_name.errors %}
+                <div class="error-message">
+                    <ul>
+                        {% for error in form.last_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+            <strong><label for="id_email"> Email-pessoal<span style="color: red">*</span></label></strong>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div class="error-message">
+                    <ul>
+                        {% for error in form.email.errors %}
+                            <li
+                            >                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+    
+                <strong><label for="id_repita_email_pessoal"> Repita Email-pessoal<span style="color: red">*</span></label></strong>
+                {{ form.repita_email_pessoal }}
+                {% if form.repita_email_pessoal.errors %}
+                    <div class="error-message">
+                        <ul>
+                            {% for error in form.repita_email_pessoal.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+    
+                <strong><label for="id_nome_empresa"> Nome da Empresa<span style="color: red">*</span></label></strong>
+                {{ form.nome_empresa }}
+                {% if form.nome_empresa.errors %}
+                    <div class="error-message">
+                        <ul>
+                            {% for error in form.nome_empresa.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+    
+                <strong><label for="id_email_empresa"> Email da empresa<span style="color: red">*</span></label></strong>
+                {{ form.email_empresa }}
+                {% if form.email_empresa.errors %}
+                    <div class="error-message">
+                        <ul>
+                            {% for error in form.email_empresa.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+    
+                <strong><label for="id_repita_email_empresa"> Repita Email da empresa<span style="color: red">*</span></label></strong>
+                {{ form.repita_email_empresa }}
+                {% if form.repita_email_empresa.errors %}
+                    <div class="error-message">
+                        <ul>
+                            {% for error in form.repita_email_empresa.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+    
+                <strong><label for="id_telefone"> Telefone<span style="color: red">*</span></label></strong>
+                {{ form.telefone }}
+                {% if form.telefone.errors %}
+                    <div class="error-message">
+                        <ul>
+                            {% for error in form.telefone.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+    
+                <button type="submit">Submeter</button>
+            </form>
+        </div>
+    </body>
+    </html>
